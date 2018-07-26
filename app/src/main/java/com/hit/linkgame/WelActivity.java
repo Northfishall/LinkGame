@@ -34,20 +34,38 @@ public class WelActivity extends Activity
     private ImageView clock;
     private TextView textRefreshNum;
     private TextView textTipNum;
-
     private MediaPlayer player;
 
     @SuppressLint("HandlerLeak")
     private Handler handler = new Handler(){
         @Override
         public void handleMessage(Message msg) {
+
+
             switch(msg.what){
                 case 0:
-                    dialog = new MyDialog(WelActivity.this,gameView,getString(R.string.success),gameView.getTotalTime() - progress.getProgress());
+                    dialog = new MyDialog(WelActivity.this,gameView,getString(R.string.success),gameView.getTotalTime() - progress.getProgress(),1);
+                    if(gameView.Level==1)
+                    {
+                        getWindow().getDecorView().setBackgroundResource(R.drawable.bgdota);
+                    }
+                    else if (gameView.Level ==2)
+                    {
+                        getWindow().getDecorView().setBackgroundResource(R.drawable.bgdior);
+                    }
+                    else if (gameView.Level == 3)
+                    {
+                        getWindow().getDecorView().setBackgroundResource(R.drawable.bgluna);
+                    }
+                    else if(gameView.Level ==4)
+                    {
+                        getWindow().getDecorView().setBackgroundResource(R.drawable.bgwd);
+                    }
                     dialog.show();
+
                     break;
                 case 1:
-                    dialog = new MyDialog(WelActivity.this,gameView,getString(R.string.fail),gameView.getTotalTime() - progress.getProgress());
+                    dialog = new MyDialog(WelActivity.this,gameView,getString(R.string.fail),gameView.getTotalTime() - progress.getProgress(),0);
                     dialog.show();
                     break;
             }
@@ -59,6 +77,7 @@ public class WelActivity extends Activity
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.welcome);
+        getWindow().getDecorView().setBackgroundResource(R.drawable.zuesbg);
         btnPlay = (ImageButton) findViewById(R.id.play_btn);
         btnRefresh = (ImageButton) findViewById(R.id.refresh_btn);
         btnTip = (ImageButton) findViewById(R.id.tip_btn);

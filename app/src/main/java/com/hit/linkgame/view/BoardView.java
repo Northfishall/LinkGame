@@ -21,7 +21,7 @@ import android.view.View;
 public class BoardView extends View {
 
 	public int Level = 1;
-
+	public int randoms = 1;
 	/**
 	 * xCount x轴方向的图标数+1
 	 */
@@ -62,24 +62,6 @@ public class BoardView extends View {
 		calIconSize();
 
 		Resources r = getResources();
-//		loadBitmaps(1, r.getDrawable(R.drawable.fruit_01));
-//		loadBitmaps(2, r.getDrawable(R.drawable.fruit_02));
-//		loadBitmaps(3, r.getDrawable(R.drawable.fruit_03));
-//		loadBitmaps(4, r.getDrawable(R.drawable.fruit_04));
-//		loadBitmaps(5, r.getDrawable(R.drawable.fruit_05));
-//		loadBitmaps(6, r.getDrawable(R.drawable.fruit_06));
-//		loadBitmaps(7, r.getDrawable(R.drawable.fruit_07));
-//		loadBitmaps(8, r.getDrawable(R.drawable.fruit_08));
-//		loadBitmaps(9, r.getDrawable(R.drawable.fruit_09));
-//		loadBitmaps(10, r.getDrawable(R.drawable.fruit_10));
-//		loadBitmaps(11, r.getDrawable(R.drawable.fruit_11));
-//		loadBitmaps(12, r.getDrawable(R.drawable.fruit_12));
-//		loadBitmaps(13, r.getDrawable(R.drawable.fruit_13));
-//		loadBitmaps(14, r.getDrawable(R.drawable.fruit_14));
-//		loadBitmaps(15, r.getDrawable(R.drawable.fruit_15));
-//		loadBitmaps(16, r.getDrawable(R.drawable.fruit_17));
-//		loadBitmaps(17, r.getDrawable(R.drawable.fruit_18));
-//		loadBitmaps(18, r.getDrawable(R.drawable.fruit_19));
 		loadBitmaps(1,r.getDrawable(R.drawable.a1));
         loadBitmaps(2,r.getDrawable(R.drawable.a2));
         loadBitmaps(3,r.getDrawable(R.drawable.a3));
@@ -102,7 +84,7 @@ public class BoardView extends View {
         loadBitmaps(20,r.getDrawable(R.drawable.photo_10));
         loadBitmaps(21,r.getDrawable(R.drawable.photo_11));
         loadBitmaps(22,r.getDrawable(R.drawable.photo_12));
-        loadBitmaps(23,r.getDrawable(R.drawable.photo_13));
+        loadBitmaps(23,r.getDrawable(R.drawable.skill15));
         loadBitmaps(24,r.getDrawable(R.drawable.skill1));
         loadBitmaps(25,r.getDrawable(R.drawable.skill2));
         loadBitmaps(26,r.getDrawable(R.drawable.skill3));
@@ -116,8 +98,42 @@ public class BoardView extends View {
         loadBitmaps(34,r.getDrawable(R.drawable.skill11));
         loadBitmaps(35,r.getDrawable(R.drawable.skill12));
         loadBitmaps(36,r.getDrawable(R.drawable.skill13));
-        loadBitmaps(37,r.getDrawable(R.drawable.skill14));
-        loadBitmaps(38,r.getDrawable(R.drawable.skill15));
+        loadBitmaps(37,r.getDrawable(R.drawable.p17));
+        loadBitmaps(38,r.getDrawable(R.drawable.p1));
+        loadBitmaps(39,r.getDrawable(R.drawable.p2));
+        loadBitmaps(40,r.getDrawable(R.drawable.p3));
+        loadBitmaps(41,r.getDrawable(R.drawable.p4));
+        loadBitmaps(42,r.getDrawable(R.drawable.p5));
+        loadBitmaps(43,r.getDrawable(R.drawable.p6));
+        loadBitmaps(44,r.getDrawable(R.drawable.p7));
+        loadBitmaps(45,r.getDrawable(R.drawable.p8));
+        loadBitmaps(46,r.getDrawable(R.drawable.p9));
+        loadBitmaps(47,r.getDrawable(R.drawable.p10));
+        loadBitmaps(48,r.getDrawable(R.drawable.p11));
+        loadBitmaps(49,r.getDrawable(R.drawable.p12));
+        loadBitmaps(50,r.getDrawable(R.drawable.p13));
+        loadBitmaps(51,r.getDrawable(R.drawable.p14));
+        loadBitmaps(52,r.getDrawable(R.drawable.p15));
+        loadBitmaps(53,r.getDrawable(R.drawable.dota1));
+		loadBitmaps(54,r.getDrawable(R.drawable.dota2));
+		loadBitmaps(55,r.getDrawable(R.drawable.dota3));
+		loadBitmaps(56,r.getDrawable(R.drawable.dota4));
+		loadBitmaps(57,r.getDrawable(R.drawable.dota5));
+		loadBitmaps(58,r.getDrawable(R.drawable.dota6));
+		loadBitmaps(59,r.getDrawable(R.drawable.dota7));
+		loadBitmaps(60,r.getDrawable(R.drawable.dota8));
+		loadBitmaps(61,r.getDrawable(R.drawable.dota9));
+		loadBitmaps(62,r.getDrawable(R.drawable.dota10));
+		loadBitmaps(63,r.getDrawable(R.drawable.dota11));
+		loadBitmaps(64,r.getDrawable(R.drawable.dota12));
+		loadBitmaps(65,r.getDrawable(R.drawable.dota13));
+		loadBitmaps(66,r.getDrawable(R.drawable.dota14));
+		loadBitmaps(67,r.getDrawable(R.drawable.dota15));
+		loadBitmaps(68,r.getDrawable(R.drawable.dota16));
+		loadBitmaps(69,r.getDrawable(R.drawable.dota17));
+		loadBitmaps(70,r.getDrawable(R.drawable.dota18));
+
+
 	}
 
 	/**
@@ -358,6 +374,37 @@ public class BoardView extends View {
 			else if (Level ==2)
 			{
 				TurnRight(temp0,temp1);
+			}
+			else if (Level == 3)
+			{
+				TurnDown(temp0,temp1);
+			}
+			else if (Level ==4)
+			{
+				TurnUp(temp0,temp1);
+			}
+			else
+			{
+				if(randoms==1)
+				{
+					TurnLeft(temp0,temp1);
+					randoms++;
+				}
+				else if (randoms ==2)
+				{
+					TurnRight(temp0,temp1);
+					randoms++;
+				}
+				else if (randoms == 3)
+				{
+					TurnDown(temp0,temp1);
+					randoms++;
+				}
+				else
+				{
+					TurnUp(temp0,temp1);
+					randoms=1;
+				}
 			}
 			selected.clear();
 			path = null;

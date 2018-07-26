@@ -15,7 +15,7 @@ public class MyDialog extends Dialog implements OnClickListener{
 	private GameView gameview;
 	private Context context;
 	
-	public MyDialog(Context context, GameView gameview, String msg, int time) {
+	public MyDialog(Context context, GameView gameview, String msg, int time,int result) {
 		super(context,R.style.dialog);
 		this.gameview = gameview;
 		this.context = context;
@@ -32,6 +32,10 @@ public class MyDialog extends Dialog implements OnClickListener{
 		btn_next.setOnClickListener(this);
 		btn_replay.setOnClickListener(this);
 		this.setCancelable(false);
+		if(result == 0 || gameview.Level == 5)//
+        {
+            btn_next.setVisibility(View.GONE);
+        }
 	}
 
 	@Override

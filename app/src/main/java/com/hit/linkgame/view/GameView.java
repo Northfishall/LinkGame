@@ -14,6 +14,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
+import android.view.View;
 
 public class GameView extends BoardView {
 
@@ -64,7 +65,7 @@ public class GameView extends BoardView {
 	public static final int ID_SOUND_ERROR = 8;
 
 	public void startPlay(){
-		Help = 3;
+		Help = 1000;
 		Refresh = 3;
 		isStop = false;
 		toolsChangedListener.onRefreshChanged(Refresh);
@@ -80,13 +81,11 @@ public class GameView extends BoardView {
 
 	public void startNextPlay(){
 		//下一关为上一关减去10秒的时间
-		totalTime = 100-10*Level;
         Level++;
         switch (Level)
         {
             case 2 :
                 iconCounts = 12;
-
                 break;
             case 3:
                 iconCounts = 14;
@@ -336,7 +335,7 @@ public class GameView extends BoardView {
                     if (y == 1) {
                         x++;
                         y = 0;
-                        if (x == iconCounts + 53 ) { //修改此处可以更改游戏中出现的水果种类
+                        if (x == iconCounts + 53 -1 ) { //修改此处可以更改游戏中出现的水果种类
                             x = 53;
                         }
                     } else {
@@ -489,6 +488,37 @@ public class GameView extends BoardView {
 		else if(Level ==2 )
 		{
 			TurnRightWhenChange();
+		}
+		else if (Level == 3)
+		{
+			TurnDownWhenChange();
+		}
+		else if (Level == 4)
+		{
+			TurnUpWhenChange();
+		}
+		else
+		{
+			if(randoms == 1)
+			{
+				TurnLeftWhenChange();
+			}
+			else if(randoms == 2)
+			{
+				TurnRightWhenChange();
+			}
+			else if (randoms == 3)
+			{
+				TurnDownWhenChange();
+			}
+			else if (randoms==4)
+			{
+				TurnUpWhenChange();
+			}
+			else
+			{
+				;
+			}
 		}
 		if (die()) {
 			change();
